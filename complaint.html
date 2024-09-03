@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Report Portal Centre - Complaint Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .logo-section img {
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #007b33;
+            padding: 10px 0;
+            border-radius: 5px;
+        }
+
+        nav a {
+            color: #fff;
+            font-weight: bold;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #005622;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+            font-size: 24px;
+        }
+
+        form {
+            width: 50%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="submit"],
+        input[type="radio"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            width: 40%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container {
+            margin: 20px 0;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+        }
+
+        label>input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .aadhaar-passport-container {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .declaration-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        function toggleComplaintForm(value) {
+            // Hide both fields initially
+            document.getElementById('aadhaar-container').classList.add('hidden');
+            document.getElementById('passport-container').classList.add('hidden');
+
+            // Show the relevant field based on nationality selection
+            if (value === 'Indian') {
+                document.getElementById('aadhaar-container').classList.remove('hidden');
+            } else if (value === 'Non Resident Indian') {
+                document.getElementById('passport-container').classList.remove('hidden');
+            }
+        }
+
+        function validateForm() {
+            // Check if both declarations are checked
+            const declaration1 = document.getElementById('declaration1').checked;
+            const declaration2 = document.getElementById('declaration2').checked;
+
+            if (!declaration1 || !declaration2) {
+                alert("You must agree to both declarations before submitting the form.");
+                return false;
+            }
+
+            // Validate each input field to ensure the input doesn't exceed the length limit
+            const inputs = document.querySelectorAll('input[type="text"]');
+            for (const input of inputs) {
+                if (input.value.length > input.maxLength) {
+                    alert(`The value in ${input.name} exceeds the allowed length of ${input.maxLength} characters.`);
+                    return false;
+                }
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-section">
+            <img src="./WhatsApp_Image_2024-08-29_at_22.50.14_2e9f372b-removebg-preview.png" alt="Government Logo 1">
+            <img src="./WhatsApp_Image_2024-08-29_at_22.55.06_0d86e9ad-removebg-preview.png" alt="Government Logo 2">
+            <img src="./WhatsApp_Image_2024-08-29_at_22.58.49_b30f1ac1-removebg-preview.png" alt="Government Logo 3">
+        </div>
+        <nav>
+            <a href="#">Register a Complaint</a>
+            <a href="Track.html">Track Complaint Status</a>
+            <a href="#">Emergency Help</a>
+            <a href="ibm.html">About Scheme</a>
+        </nav>
+    </header>
+
+    <h1>Cyber Report Portal Centre</h1>
+
+    <!-- Unified Complaint Registration Form -->
+    <form id="complaint-registration-form" onsubmit="return validateForm();">
+        <div class="form-section">
+            <h2>Complaint Registration</h2>
+
+            <label for="name">Name of the Victim (As per Aadhar card):</label>
+            <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Only letters are allowed" placeholder="Enter your name" maxlength="50">
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" required pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" placeholder="Enter your mobile number" maxlength="10">
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required placeholder="Enter your state" maxlength="50">
+
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" required placeholder="Enter your district" maxlength="50">
+
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required placeholder="Enter the place" maxlength="100">
+
+            <label for="pincode">Pincode/Postal Code:</label>
+            <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}" title="Please enter a valid 6-digit postal code" placeholder="Enter your pincode" maxlength="6">
+
+            <label>Nationality:</label>
+            <input type="radio" id="indian" name="nationality" value="Indian" onclick="toggleComplaintForm('Indian')" required> Indian
+            <input type="radio" id="nri" name="nationality" value="Non Resident Indian" onclick="toggleComplaintForm('Non Resident Indian')"> Non Resident Indian
+        </div>
+
+        <!-- Aadhaar Number Field (Shown if Indian) -->
+        <div id="aadhaar-container" class="aadhaar-passport-container hidden">
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" title="Please enter a valid 12-digit Aadhaar number" placeholder="Enter your Aadhaar number" maxlength="12">
+        </div>
+
+        <!-- Passport Number Field (Shown if Non Resident Indian) -->
+        <div id="passport-container" class="aadhaar-passport-container hidden">
+            <label for="passport">Passport Number:</label>
+            <input type="text" id="passport" name="passport" pattern="[A-Za-z0-9]{8,9}" title="Please enter a valid passport number (8 or 9 characters)" placeholder="Enter your passport number" maxlength="9">
+        </div>
+
+        <div class="form-section">
+            <label for="lost-mobile">Mobile Number (lost with mobile theft):</label>
+            <input type="text" id="lost-mobile" name="lost-mobile" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" placeholder="Enter the lost mobile number" maxlength="10">
+
+            <label for="imei1">IMEI Number (Slot 1):</label>
+            <input type="text" id="imei1" name="imei1" pattern="[0-9]{15}" title="Please enter a valid 15-digit IMEI number" placeholder="Enter IMEI number for slot 1" maxlength="15">
+
+            <label for="imei2">IMEI Number (Slot 2):</label>
+            <input type="text" id="imei2" name="imei2" pattern="[0-9]{15}" title="Please enter a valid 15-digit IMEI number" placeholder="Enter IMEI number for slot 2" maxlength="15">
+        </div>
+
+        <!-- Declaration Section -->
+        <div class="declaration-section">
+            <label><input type="checkbox" id="declaration1" name="declaration1" required> Hereby, I authorize the Government of India to retrieve details from UIDAI for all authorized purposes.</label><br>
+            <label><input type="checkbox" id="declaration2" name="declaration2" required> Hereby, I declare that the above provided information is true to my knowledge. If any false information provided by me is encountered while accessing the details, I acknowledge that I shall be punished for 15 years as per Laws enforced by the Government of Republic of India.</label>
+        </div>
+
+        <div class="centered">
+            <input type="submit" value="Submit Complaint">
+        </div>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Report Portal Centre</title>
+    <link rel="stylesheet" href="4.css">
+    <script>
+        function validateForm() {
+            const complaintNumber = document.getElementById('complaint-number').value;
+            const date = document.getElementById('date').value;
+
+            if (complaintNumber === "" || date === "") {
+                alert("Please fill in both the Complaint Number and Date fields.");
+                return false;
+            }
+
+            if (complaintNumber.length > 12 || !/^\d{1,12}$/.test(complaintNumber)) {
+                alert("Please enter a valid Complaint Number with up to 12 digits.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="C:\Users\ChandraSekar\Downloads\Emblem_of_India.png" alt="Cyber Logo" >
+            </div>
+            <h1>Cyber Report Portal Centre</h1>
+        </header>
+
+        <nav class="nav-bar">
+            <a href="#">Register a Complaint</a>
+            <a href="#">Track Complaint Status</a>
+            <a href="#">Emergency Help</a>
+            <a href="#">About Scheme</a>
+        </nav>
+
+        <div class="track-status">
+            <h2>Track Complaint Status</h2>
+            <form action="#" onsubmit="return validateForm()">
+                <label for="complaint-number">Complaint Number</label>
+                <input type="text" id="complaint-number" name="complaint-number" placeholder="Enter your complaint number" maxlength="12" pattern="\d{1,12}">
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+
+                <button type="submit">Track Status</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

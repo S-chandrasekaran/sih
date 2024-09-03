@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Report Portal Centre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>Cyber Report Portal Centre</h1>
+        </div>
+        
+        <center><img src="C:\Users\ChandraSekar\Downloads\Emblem_of_India.png" alt="Government of India Logo" style="width: 60px; height: auto;"></center>
+        <center><b>An Initiative by the Government of India</b></center><hr>
+        
+        <div class="form">
+            <form method="POST" onsubmit="return validateForm()">
+                <!-- Mobile Number Field -->
+                <label for="mobile">Mobile Number</label>
+                <input type="text" id="mobile" name="mobile" required pattern="\d{10}" title="Please enter a valid 10-digit mobile number.">
+                
+                <center><button type="submit">Get OTP</button></center>
+
+                <!-- OTP Field -->
+                <label for="otp">OTP</label>
+                <input type="text" id="otp" name="otp" required pattern="\d{6}" title="Please enter a valid 6-digit OTP.">
+
+                <!-- Agreement Checkbox -->
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree to create a new account with the portal in order to track the status of the complaint.</label>
+
+                <center><button type="submit">Register</button></center><hr>
+            </form>
+        </div>
+
+        <div class="logos">
+            <img src="C:\Users\ChandraSekar\Downloads\OIP (2).jpg" alt="Government of India Logo">
+        </div>
+        
+        <div class="info">
+            <p>Cyber Report Portal is established in the year 2024 by the authority of Government of India under the Ministry of Telecommunications and Internal Affairs to reduce the risks of cybersecurity.</p>
+        </div>
+       
+    </div>
+
+    <!-- JavaScript for Additional Validation -->
+    <script>
+        function validateForm() {
+            var mobile = document.getElementById("mobile").value;
+            var otp = document.getElementById("otp").value;
+            
+            // Validate mobile number is exactly 10 digits
+            if (!/^\d{10}$/.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return false;
+            }
+            
+            // Validate OTP is exactly 6 digits
+            if (!/^\d{6}$/.test(otp)) {
+                alert("Please enter a valid 6-digit OTP.");
+                return false;
+            }
+            
+            return true; // Submit the form if all validations pass
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header .logo img {
+    width: 80px;
+    height: auto;
+}
+
+.header h1 {
+    color: #2c5f2d;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-bar a:hover {
+    background-color: #45a049;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.track-status {
+    text-align: center;
+}
+
+.track-status h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.track-status form {
+    display: inline-block;
+    text-align: left;
+}
+
+.track-status label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.track-status input[type="text"],
+.track-status input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.track-status button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.track-status button:hover {
+    background-color: #45a049;
+}
